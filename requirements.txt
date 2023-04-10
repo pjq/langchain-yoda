@@ -1,0 +1,7 @@
+openai
+langchain
+llama-cpp-python
+pyllamacpp
+chromadb
+google-api-python-client
+tiktoken

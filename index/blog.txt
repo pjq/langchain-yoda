@@ -1,0 +1,25 @@
+from langchain.indexes import VectorstoreIndexCreator
+from langchain.chains import RetrievalQA
+from langchain.llms import OpenAI
+from langchain.document_loaders import TextLoader
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+
+# specify the document loader to use
+loader = TextLoader('state_of_the_union.txt')
+
+# create the vectorstore index
+index = VectorstoreIndexCreator(vectorstore_cls=Chroma, embedding=OpenAIEmbeddings(),
+                                text_splitter=CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)).from_loaders([loader])
+
+# create a retriever from the index
+retriever = index.vectorstore.as_retriever()
+
+# create a question answering chain
+qa = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=retriever)
+
+# ask a question
+question = "What did the president say about climate change?"
+answer = qa.run(question)
+print(answer)
