@@ -5,6 +5,9 @@ LangChain-Yoda is a collection of various agents and tools built based on Langch
 - kinds of tools and agents build by Langchain
 - Embeddings and index capability
 
+Slides
+- https://docs.google.com/presentation/d/1lXIg5WSDh9qBJ2_j4DjDlz_okicAqELf7IcLzu7tIzE/edit#slide=id.g742e3e7cd_0_0
+
 ### Setup the KEYS
 
 ```shell
