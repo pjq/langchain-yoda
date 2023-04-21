@@ -43,7 +43,7 @@ def createLlamaEmbeddings():
     from langchain.embeddings import LlamaCppEmbeddings
     from langchain.llms import LlamaCpp
     from langchain import PromptTemplate, LLMChain
-    llama = LlamaCppEmbeddings(model_path=getLlamaModel())
+    llama = LlamaCppEmbeddings(model_path=getLlamaModel(), n_ctx=2048)
 
     return llama
 

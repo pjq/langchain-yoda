@@ -8,18 +8,24 @@ import lib.utils as proxy
 # Set up Google search and other tools
 # search = proxy.createGoogleSearch()
 search = proxy.createGoogleSerper()
+bash = proxy.createBash()
 tools = [
     Tool(
         name="Google Search",
         func=search.run,
         description="useful for when you need to answer questions about current events or the current state of the world. the input to this should be a single search term."
+    ),
+    Tool(
+        name="Bash Process",
+        func=bash.run,
+        description="useful for when you need to control or get the information from the current system"
     )
 ]
 
 # Set up the chatbot
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 llm = ChatOpenAI(temperature=0)
-agent_chain = initialize_agent(tools, llm, agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION, verbose=False, memory=memory)
+agent_chain = initialize_agent(tools, llm, agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION, verbose=True, memory=memory)
 
 # Start chatting with the user
 print('Bot: Hello! How can I assist you today?')
