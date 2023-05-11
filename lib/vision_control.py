@@ -4,6 +4,7 @@ from typing import Optional, Type
 from langchain.tools import BaseTool
 
 from lib.vision_caption import VisionPositionScheme
+from lib.vision_caption import VisionCaptionTool
 
 
 class VisionControl(BaseTool):
@@ -14,7 +15,10 @@ class VisionControl(BaseTool):
     def _run(self, position: str) -> str:
     # def _run(self, run_manager: Optional[CallbackManagerForToolRun] = None) -> str:
         """Use the tool."""
-        return f"The camera have turn {position} success"
+        vision = VisionCaptionTool()
+        # vision.run(position)
+        return f"The camera have turn {position} success, {vision.run(position)}"
+
 
     async def _arun(self) -> str:
         # async def _arun(self, query: str, run_manager: Optional[AsyncCallbackManagerForToolRun] = None) -> str:

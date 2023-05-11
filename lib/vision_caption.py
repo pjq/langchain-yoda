@@ -10,7 +10,7 @@ class VisionPositionScheme(BaseModel):
 
 class VisionCaptionTool(BaseTool):
     name = "vision_caption_tool"
-    description = "useful when you want to check what you see, " \
+    description = "useful when you want to check what you see in front of you, " \
                   "it ONLY show the vision in front of you, you can not see the left/right/back position."
     args_schema: Type[VisionPositionScheme] = VisionPositionScheme
 
