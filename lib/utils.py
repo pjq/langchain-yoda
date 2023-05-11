@@ -69,3 +69,31 @@ def createBash():
     tool = BashProcess()
 
     return tool
+
+def createWolfram():
+    from langchain.utilities import WolframAlphaAPIWrapper
+    tool = WolframAlphaAPIWrapper()
+    # os.environ["WOLFRAM_ALPHA_APPID"] = ""
+
+    return tool
+def createOpenWeatherMap():
+    from langchain.utilities import OpenWeatherMapAPIWrapper
+    tool = OpenWeatherMapAPIWrapper()
+    # os.environ["OPENWEATHERMAP_API_KEY"] = ""
+
+    return tool
+def createHuman():
+    from langchain.tools.human import tool
+    tool = tool.HumanInputRun()
+
+    return tool
+def createVisionCaption():
+    from lib.vision_caption import VisionCaptionTool
+    tool = VisionCaptionTool()
+
+    return tool
+def createVisionControl():
+    from lib.vision_control import  VisionControl
+    tool = VisionControl()
+
+    return tool

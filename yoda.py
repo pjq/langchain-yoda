@@ -9,12 +9,39 @@ import lib.utils as proxy
 # search = proxy.createGoogleSearch()
 search = proxy.createGoogleSerper()
 bash = proxy.createBash()
+worlfram= proxy.createWolfram()
+human = proxy.createHuman()
+weather = proxy.createOpenWeatherMap()
+visionCaption = proxy.createVisionCaption()
+visionControl = proxy.createVisionControl()
 tools = [
     Tool(
         name="Google Search",
         func=search.run,
         description="useful for when you need to answer questions about current events or the current state of the world. the input to this should be a single search term."
     ),
+    Tool(
+        name="Wolfram",
+        func=worlfram.run,
+        description=""
+    ),
+    Tool(
+        name="Human",
+        func=human.run,
+        description=""
+    ),
+    Tool(
+        name="weather",
+        func=weather.run,
+        description="weather information"
+    ),
+    visionCaption,
+    visionControl,
+    # Tool(
+    #     name="vision caption",
+    #     func=weather.run,
+    #     description="vision caption "
+    # ),
     Tool(
         name="Bash Process",
         func=bash.run,

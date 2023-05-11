@@ -7,3 +7,5 @@ google-api-python-client
 tiktoken
 llama_index
 requests==2.28.1
+wolframalpha
+pyowm
